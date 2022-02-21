@@ -1,0 +1,20 @@
+{
+  "name": "Chrome Confetti",
+  "description": "Confetti every time you open a new page!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "48": "assets/icon_48.png",
+    "128": "assets/icon_128.png"
+  },
+  "permissions": [
+    "tabs",
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
