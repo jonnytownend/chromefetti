@@ -11,7 +11,6 @@ function createCanvas() {
   canvas.style.zIndex = 1000
   canvas.style.pointerEvents = 'none'
   return canvas
-  document.body.appendChild(canvas)
 }
 
 function run() {
@@ -23,22 +22,19 @@ function run() {
     useWorker: true
   })
 
-  // Set timeout to fire confetti after 300ms
-  setTimeout(() => {
-    // Fire confetti
-    myConfetti({
-      angle: randomInRange(55, 125),
-      spread: randomInRange(100, 200),
-      particleCount: randomInRange(100, 200),
-      origin: { y: 0.7 },
-      startVelocity: 55,
-    })
-  }, 300)
+  // Fire confetti
+  myConfetti({
+    angle: randomInRange(55, 125),
+    spread: randomInRange(100, 200),
+    particleCount: randomInRange(150, 300),
+    origin: { y: 0.7 },
+    startVelocity: 55,
+  })
 
-  // Set timeout to remove confetti canvas after 3.3s
+  // Set timeout to remove confetti canvas after 3s
   setTimeout(() => {
     canvas.remove()
-  }, 3000 + 300)
+  }, 3000)
 }
 
 run()

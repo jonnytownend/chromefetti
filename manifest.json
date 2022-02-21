@@ -1,7 +1,7 @@
 {
-  "name": "Chrome Confetti",
-  "description": "Confetti every time you open a new page!",
-  "version": "1.0",
+  "name": "Chromefetti",
+  "description": "Confetti every time you open a new page. Because why not!",
+  "version": "1.1",
   "manifest_version": 3,
   "icons": {
     "48": "assets/icon_48.png",
@@ -16,5 +16,7 @@
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "src/background.js"
-  }
+  },
+  "options_page": "src/options-page/options.html",
+  "action": {}
 }
