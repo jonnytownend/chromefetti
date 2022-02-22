@@ -2,6 +2,8 @@
 
 A pointless chrome plugin that spreads confetti and joy whenever you navigate to a new page 🎉
 
+![Chromefetti demo](/assets/demo.jpg)
+
 ## ⬇️ Installation
 
 1. Clone / download this repo and unzip it. Move the directory to somewhere sensible that it can live.
