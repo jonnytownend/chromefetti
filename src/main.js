@@ -33,7 +33,7 @@ function run() {
   // Set timeout to remove confetti canvas after 3s
   setTimeout(() => {
     canvas.remove()
-  }, 3000)
+  }, 4000)
 }
 
 run()
