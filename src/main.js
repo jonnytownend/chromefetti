@@ -19,7 +19,6 @@ function run() {
 
   var myConfetti = confetti.create(canvas, {
     resize: true,
-    useWorker: true
   })
 
   // Fire confetti

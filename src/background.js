@@ -15,7 +15,7 @@ chrome.tabs.onCreated.addListener((tab) => {
 // On tab update, show confetti if required
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   chrome.storage.sync.get('confettiEveryPage', ({ confettiEveryPage }) => {
-    if (confettiEveryPage && tab.url !== 'chrome://newtab/' && tabId === lastTabId && !confettiShown) {
+    if (confettiEveryPage && tab.url.split(':')[0] !== 'chrome' && tabId === lastTabId && !confettiShown) {
       chrome.scripting.executeScript({
         target: {
           tabId: tab.id,
@@ -33,16 +33,17 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 // Show confetti when extension icon clicked
 chrome.action.onClicked.addListener(() => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const tabId = tabs[0].id
-    console.log('Jonny - tab:', tabId)
-    chrome.scripting.executeScript({
-      target: {
-        tabId,
-      },
-      files: [
-        'lib/confetti.browser.js',
-        'src/main.js'
-      ],
-    })
+    const tab = tabs[0]
+    if (tab.url.split(':')[0] !== 'chrome') {
+      chrome.scripting.executeScript({
+        target: {
+          tabId: tab.id,
+        },
+        files: [
+          'lib/confetti.browser.js',
+          'src/main.js'
+        ],
+      })
+    }
   })
 })
