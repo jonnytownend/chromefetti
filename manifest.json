@@ -15,7 +15,7 @@
   ],
   "host_permissions": ["<all_urls>"],
   "background": {
-    "service_worker": "src/background.js"
+    "service_worker": "background.js"
   },
   "options_page": "src/options-page/options.html",
   "action": {}

@@ -1,6 +1,14 @@
 let lastTabId = -1
 let confettiShown = false
 
+const requiredFiles = [
+  'lib/confetti.browser.js',
+  'src/main/utils.js',
+  'src/main/canvas.js',
+  'src/main/confetti.js',
+  'src/main/main.js'
+]
+
 function pageIsAllowed(url) {
   return !url.startsWith('chrome://') && !url.startsWith('chrome-extension://')
 }
@@ -24,10 +32,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         target: {
           tabId: tab.id,
         },
-        files: [
-          'lib/confetti.browser.js',
-          'src/main.js'
-        ],
+        files: requiredFiles,
       })
       confettiShown = true
     }
@@ -43,10 +48,7 @@ chrome.action.onClicked.addListener(() => {
         target: {
           tabId: tab.id,
         },
-        files: [
-          'lib/confetti.browser.js',
-          'src/main.js'
-        ],
+        files: requiredFiles,
       })
     }
   })
